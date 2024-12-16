@@ -1,0 +1,28 @@
+<body>
+ <div id="content">halo rimba </div> 
+</body>
+  
+</body><script>
+  
+// Mengambil data JSON dari URL eksternal
+fetch('https://rimba.id/api/data.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("HTTP error " + response.status);
+        }
+        return response.json(); // Parsing JSON
+    })
+    .then(data => {
+        // Mengakses data
+        console.log(data.data);
+        console.log(data.data[0].id);
+        console.log(data.data[1].nama);
+      nah=data.data[1].nama;
+      // alert(nah);
+     document.getElementById("content").innerHTML=nah;
+     // document.getElementById("content").innerHTML = "I have changed!";
+    })
+    .catch(error => {
+        console.error("Error fetching data:", error);
+    });
+</script>
